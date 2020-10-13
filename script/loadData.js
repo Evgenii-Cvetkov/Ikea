@@ -1,20 +1,20 @@
 import { getData } from './getData.js'
 const wishList = ['idd005', 'idd100', 'idd077', 'idd033'];
 
-    const cartList = [
-        {
-            id: 'idd015',
-            count: 3
-        },
-        {
-            id: 'idd045',
-            count: 1
-        },
-        {
-            id: 'idd095',
-            count: 2
-        }
-    ];
+const cartList = [
+    {
+        id: 'idd015',
+        count: 3
+    },
+    {
+        id: 'idd045',
+        count: 1
+    },
+    {
+        id: 'idd095',
+        count: 2
+    }
+];
 
 export const loadData = () => {
 
@@ -29,17 +29,17 @@ export const loadData = () => {
         if (prop === 's') {
             console.log(value);
         } else if (prop === 'wishlist') {
-            console.log(wishList);
+            getData.wishList(wishList, (data) => console.dir({wishlist: data}));
         } else {
             console.log(prop, value);
         }
     }
 
     if (location.hash) {
-        console.log(location.hash.substring(1));
+        getData.item(location.hash.substring(1)), (data) => console.log(data);
     }
 
     if (location.pathname.includes('cart')) {
-        console.log(cartList);
+        getData.cart(cartList, (data) => console.log(data));
     }
 };
