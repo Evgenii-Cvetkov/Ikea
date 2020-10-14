@@ -20,18 +20,15 @@ export const loadData = () => {
 
     if (location.search) {
         const search = decodeURI(location.search);
-        console.log(search);
-        const prop = search.split('=')[0].slice(1);
-        console.log('prop: ', prop);
+        const prop = search.split('=')[0].slice(1);       
         const value = search.split('=')[1];
-        console.log('value: ', value);
 
         if (prop === 's') {
-            console.log(value);
+            getData.search(value, (data) => console.log(data));
         } else if (prop === 'wishlist') {
             getData.wishList(wishList, (data) => console.dir({wishlist: data}));
         } else {
-            console.log(prop, value);
+            getData.category(prop, value, (data) => console.log(data))
         }
     }
 
