@@ -27,7 +27,7 @@ export const loadData = () => {
             getData.search(value, (data) => console.log(data));
         } else if (prop === 'wishlist') {
             getData.wishList(wishList, (data) => console.dir({wishlist: data}));
-        } else {
+        } else if (prop === 'cat' || prop === 'subcat') {
             getData.category(prop, value, (data) => console.log(data))
         }
     }
@@ -39,4 +39,7 @@ export const loadData = () => {
     if (location.pathname.includes('cart')) {
         getData.cart(cartList, (data) => console.log(data));
     }
+
+    getData.catalog((data) => console.log(data));
+    getData.subCatalog((data) => console.log(data));
 };
